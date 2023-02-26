@@ -1,15 +1,17 @@
+// get all data and pass only some data using slice to show in the UI
 const loadAllData = () => {
   fetch("https://restcountries.com/v3.1/all")
     .then((res) => res.json())
     .then((data) => showData(data.slice(0, 9)));
 };
 
+// show data to UI
 const showData = (countries) => {
-  // console.log(countries);
+  console.log(countries);
   const countriesContainer = document.getElementById("countries-info");
   countriesContainer.innerHTML = "";
   countries.forEach((country) => {
-    console.log(country.cca2);
+    // console.log(country);
     const div = document.createElement("div");
     div.innerHTML = `
     <div class="card w-3/4 h-96 bg-base-100 shadow-2xl m-4">
@@ -29,6 +31,8 @@ const showData = (countries) => {
     countriesContainer.appendChild(div);
   });
 };
+
+// get all data and pass all data using slice to show in the UI when click See All button
 const showAllDataTogether = () => {
   fetch("https://restcountries.com/v3.1/all")
     .then((res) => res.json())
@@ -42,14 +46,19 @@ const showDetails = (id) => {
     .then((data) => displayCountryDetails(data[0]));
 };
 
+// show countries info in modal using dynamic URL  and unique id for all countries
 const displayCountryDetails = (country) => {
-  console.log(country);
+  console.log(country.name.nativeName);
   document.getElementById("country-name").innerText = country.name.common;
   const countryDetails = document.getElementById("country-details-body");
   countryDetails.innerHTML = `
+  <label
+  for="my-modal-6"
+  class="btn btn-sm btn-circle absolute right-2 top-2"
+  >✕</label
+>
   <img src="${country.flags.png}">
   <p class="text-lg font-semibold mt-6">Capital: ${country.capital}</p>
-  <p class="text-lg font-semibold">Language: ${country.languages.cca3}</p>
   <p class="text-lg font-semibold">Population: ${country.population}</p>
   <p class="text-lg font-semibold">Region: ${country.region}</p>
   <p class="text-lg font-semibold">Sub-region: ${country.subregion}</p>
