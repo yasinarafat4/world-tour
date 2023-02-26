@@ -24,17 +24,31 @@
     ></section>
     <div class="text-end lg:px-12">
       <button onclick="showAllDataTogether()" class="btn btn-primary my-4">
-        See ALL
+        See All Countries
       </button>
     </div>
     <div id="modal-info">
       <input type="checkbox" id="my-modal-3" class="modal-toggle" />
     </div>
-    <h2 class="text-center font-semibold text-3xl mx-6">
-      Have A Cool Tour Together
-    </h2>
     <img src="" alt="" />
+
+    <!-- modal -->
+    <input type="checkbox" id="my-modal-6" class="modal-toggle" />
+    <div class="modal modal-bottom sm:modal-middle">
+      <div class="modal-box">
+        <h3 id="country-name" class="font-bold text-3xl"></h3>
+        <div class="py-4" id="country-details-body"></div>
+        <div class="modal-action">
+          <label for="my-modal-6" class="btn bg-red-800">Close</label>
+        </div>
+      </div>
+    </div>
     <!-- js -->
     <script src="js/script.js"></script>
   </body>
+  <footer class="bg-teal-600 py-12">
+    <h2 class="text-center text-white-600 font-semibold text-3xl mb-6">
+      Have A Cool Tour Together
+    </h2>
+  </footer>
 </html>
