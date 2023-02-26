@@ -6,9 +6,10 @@ const loadAllData = () => {
 
 const showData = (countries) => {
   // console.log(countries);
+  const countriesContainer = document.getElementById("countries-info");
+  countriesContainer.innerHTML = "";
   countries.forEach((country) => {
     console.log(country.cca2);
-    const countriesContainer = document.getElementById("countries-info");
     const div = document.createElement("div");
     div.innerHTML = `
     <div class="card w-3/4 h-96 bg-base-100 shadow-2xl m-4">
@@ -19,7 +20,7 @@ const showData = (countries) => {
         <h2 class="card-title">${country.name.common}</h2>
         <p class="text-lg">Continents: ${country.continents}</p>
           <div class="card-actions">
-            <label onclick="showDetails('${country.cca2}')" for="my-modal-6" class="btn btn-secondary">Details</label>
+            <label onclick="showDetails('${country.cca2}')" for="my-modal-6" class="btn btn-outline btn-primary">Details</label>
           </div>
       </div>
     </div>
